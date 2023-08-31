@@ -19,8 +19,8 @@ function datass(data){
 
 const mainContainer = document.getElementById('main-section-container');
 mainContainer.innerHTML = `
-    <button class="px-3 rounded-md font-semibold py-1 mx-2 bg-slate-300">All</button>
-    <button class="px-3 rounded-md font-semibold py-1 mx-2 bg-slate-300">Music</button>
-    <button class="px-3 rounded-md font-semibold py-1 mx-2 bg-slate-300">Comedy</button>
-    <button class="px-3 rounded-md font-semibold py-1 mx-2 bg-slate-300">Drawing</button>
+    <button class="px-3 rounded-md font-semibold py-1 mx-2 bg-slate-300 hover:bg-slate-400">All</button>
+    <button class="px-3 rounded-md font-semibold py-1 mx-2 bg-slate-300 hover:bg-slate-400">Music</button>
+    <button class="px-3 rounded-md font-semibold py-1 mx-2 bg-slate-300 hover:bg-slate-400">Comedy</button>
+    <button class="px-3 rounded-md font-semibold py-1 mx-2 bg-slate-300 hover:bg-slate-400">Drawing</button>
 `;
