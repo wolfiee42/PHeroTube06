@@ -1,3 +1,4 @@
+// ${propertyName?'<img class="w-[]" src="image.png">':' '}
 
 const mainContainer = document.getElementById('main-section-container');
 mainContainer.innerHTML = `
@@ -8,6 +9,7 @@ mainContainer.innerHTML = `
 `;
 
 
+// default section
 fetch('https://openapi.programming-hero.com/api/videos/category/1000')
     .then(res => res.json())
     .then(data => datass(data));
@@ -17,16 +19,23 @@ function datass(data) {
     all(something);
 }
 
+// for all section
 function infoo(id) {
     fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`)
         .then(res => res.json())
         .then(data => {
             const dataass = data.data;
-            all(dataass)
+            all(dataass);
+            console.log(dataass);
         })
+        /* try {
+            
+        } catch (error) {
+            
+        } */
 }
 
-
+// indivitual calling
 document.getElementById('all-btn').addEventListener('click', () => {
     infoo(1000)
 })
