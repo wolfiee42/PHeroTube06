@@ -1,21 +1,3 @@
-/* fetch('https://openapi.programming-hero.com/api/videos/category/1000')
-    .then(res => res.json())
-    .then(data => datass(data));
-
-function datass(data){
-    const something = data.data;
-    something.forEach(datum => console.log(datum));
-} */
-
-/* fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`)
-    .then(res => res.json())
-    .then(data => datass(data));
-
-function datass(data){
-    const something = data.data;
-    something.forEach(datum => console.log(datum));
-} */
-
 
 const mainContainer = document.getElementById('main-section-container');
 mainContainer.innerHTML = `
@@ -34,13 +16,14 @@ function datass(data) {
     const something = data.data;
     something.forEach(datum => {
         all(datum);
-        console.log(datum);
+        // console.log(datum);
     });
 }
 
 const all = (datum) => {
-    const cardContainer = document.getElementById('card-container')
+    const cardContainer = document.getElementById('card-container');
     const divi = document.createElement('div');
+    // cardContainer.textContent = '';
     divi.innerHTML = `
     <div class="m-4">
         <div>
@@ -61,3 +44,32 @@ const all = (datum) => {
     cardContainer.appendChild(divi);
 
 }
+
+
+// for specific videos
+
+
+
+function infoo(id) {
+    fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`)
+        .then(res => res.json())
+        .then(data => {
+            const dataass = data.data;
+
+            dataass.forEach(datum => {
+                console.log(datum);
+                all(datum)
+            })
+        })
+}
+
+
+document.getElementById('all-btn').addEventListener('click', (id) => {
+    infoo(1000)
+})
+document.getElementById('music-btn').addEventListener('click', (id) => {
+    infoo(1001)
+})
+document.getElementById('comedy-btn').addEventListener('click', (id) => {
+    infoo(1003)
+})
