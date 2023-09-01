@@ -23,14 +23,16 @@ function infoo(id) {
         .then(res => res.json())
         .then(data => {
             const dataass = data.data;
-            all(dataass);
+            // all(dataass);
             console.log(dataass);
+
+            if (dataass.length > 0) {
+                all(dataass);
+            } else if (dataass.length === 0) {
+                nothing();
+            }
         })
-        /* try {
-            
-        } catch (error) {
-            
-        } */
+
 }
 
 // indivitual calling
@@ -68,7 +70,7 @@ const all = (data) => {
                 <div class="flex md:flex-col lg:flex-col gap-5 md:gap-0 lg:gap-0  justify-center mx-10 my-2">
                     <div class="flex items-center justify-start gap-2">
                         <p>${datum.authors[0].profile_name}</p>
-                        <p>${datum.authors[0].verified?'<img class="w-[15px] h-[15px]" src="image/fi_10629607.png">':' '}</p>
+                        <p>${datum.authors[0].verified ? '<img class="w-[15px] h-[15px]" src="image/fi_10629607.png">' : ' '}</p>
                     </div>
                     <p>${datum.others.views} views</p>
                 </div>
@@ -76,6 +78,19 @@ const all = (data) => {
 
         cardContainer.appendChild(divi);
     })
+}
+
+const nothing = () => {
+    const cardContainer = document.getElementById('card-containerr');
+    cardContainer.textContent = '';
+
+    const div = document.createElement('div');
+    div.innerHTML = `
+    <img src="image/Icon.png">
+    <p>Oops!! Sorry, There is no content here.</p>
+    `;
+    div.classList = `flex flex-col justify-center items-center gap-5 my-28`
+    cardContainer.appendChild(div)
 }
 
 
