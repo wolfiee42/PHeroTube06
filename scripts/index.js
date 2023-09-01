@@ -12,9 +12,15 @@ fetch('https://openapi.programming-hero.com/api/videos/category/1000')
     .then(res => res.json())
     .then(data => datass(data));
 
+
+    
 function datass(data) {
     const something = data.data;
+
+    console.log(something);
     all(something);
+    // sorted(something)
+
 }
 
 // for all section
@@ -23,21 +29,36 @@ function infoo(id) {
         .then(res => res.json())
         .then(data => {
             const dataass = data.data;
-            // all(dataass);
+            all(dataass);
             console.log(dataass);
 
-            if (dataass.length > 0) {
+            /* if (dataass.length > 0) {
                 all(dataass);
             } else if (dataass.length === 0) {
                 nothing();
-            }
+            } */
         })
 
 }
 
+// for sort button
+
+
+/* document.getElementById('sort-btn').addEventListener('click', sorted = (information) => {
+    const viewsArr = [];
+    information.forEach(info => {
+        const viewsString = info.others.views;
+        const views = parseInt(viewsString) * 1000;
+        viewsArr.push(views)
+    })
+    console.log(viewsArr);
+    viewsArr.sort(function(a, b){return b - a});
+    console.log(viewsArr);
+}) */
+
 // indivitual calling
 document.getElementById('all-btn').addEventListener('click', () => {
-    infoo(1000)
+    infoo(1000);
 })
 document.getElementById('music-btn').addEventListener('click', () => {
     infoo(1001)
@@ -54,20 +75,22 @@ const all = (data) => {
     cardContainer.textContent = '';
 
     data.forEach(datum => {
+
+
         function secToHM(totalSeconds) {
             const secInMin = 60;
             const secInHr = 60 * secInMin;
-          
-            // Calculate hours and minutes
+
+
             const hours = Math.floor(totalSeconds / secInHr);
             const minutes = Math.floor((totalSeconds % secInHr) / secInMin);
-          
+
             return { hours, minutes };
-          }
-          
-          const totalSeconds = datum.others.posted_date;
-          const { hours, minutes } = secToHM(totalSeconds);
-          
+        }
+
+        const totalSeconds = datum.others.posted_date;
+        const { hours, minutes } = secToHM(totalSeconds);
+
 
 
         const divi = document.createElement('div');
@@ -77,7 +100,7 @@ const all = (data) => {
                 <div class="relative">
                     <img class="w-[300px] h-[150px] mx-auto rounded-lg" src="${datum.thumbnail}">
                     
-                        <p>${datum.others.posted_date? `<div class="absolute bottom-2 right-10 md:right-8 lg:right-5 bg-slate-100 p-1 text-black rounded-lg text-xs">${hours}hrs ${minutes}mins ago</div>` : ' '}</p>
+                        <p>${datum.others.posted_date ? `<div class="absolute bottom-2 right-10 md:right-8 lg:right-5 bg-slate-100 p-1 text-black rounded-lg text-xs">${hours}hrs ${minutes}mins ago</div>` : ' '}</p>
                     
                 </div>
                 <div class="flex justify-center lg:justify-between items-center gap-8 lg:gap-4 mx-5 mt-5">
@@ -113,7 +136,7 @@ const nothing = () => {
 }
 
 
-// for specific videos
+
 
 
 
