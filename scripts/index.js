@@ -1,5 +1,3 @@
-// ${propertyName?'<img class="w-[]" src="image.png">':' '}
-
 const mainContainer = document.getElementById('main-section-container');
 mainContainer.innerHTML = `
     <button id="all-btn" class="px-3 rounded-md font-semibold py-1 mx-2 bg-slate-300 hover:bg-slate-400">All</button>
@@ -70,7 +68,7 @@ const all = (data) => {
                 <div class="flex md:flex-col lg:flex-col gap-5 md:gap-0 lg:gap-0  justify-center mx-10 my-2">
                     <div class="flex items-center justify-start gap-2">
                         <p>${datum.authors[0].profile_name}</p>
-                        <p>${datum.authors[0].verified?'<img class="w-[15px] h-[15px]" src="https://w7.pngwing.com/pngs/15/560/png-transparent-verified-badge-symbol-computer-icons-twitter-discord-flat-icon-blue-text-logo-thumbnail.png">':' '}</p>
+                        <p>${datum.authors[0].verified?'<img class="w-[15px] h-[15px]" src="image/fi_10629607.png">':' '}</p>
                     </div>
                     <p>${datum.others.views} views</p>
                 </div>
