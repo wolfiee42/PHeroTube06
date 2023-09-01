@@ -58,8 +58,11 @@ const all = (data) => {
 
         divi.innerHTML = `
             <div class="m-4">
-                <div>
+                <div class="relative">
                     <img class="w-[300px] h-[150px] mx-auto rounded-lg" src="${datum.thumbnail}">
+                    
+                        <p>${datum.others.posted_date? `<div class="absolute bottom-2 right-16 md:right-8 lg:right-5 bg-black p-1 text-white rounded-lg">${datum.others.posted_date}</div>` : ' '}</p>
+                    
                 </div>
                 <div class="flex justify-center lg:justify-between items-center gap-8 lg:gap-4 mx-5 mt-5">
                     <div>
@@ -90,7 +93,7 @@ const nothing = () => {
     <p>Oops!! Sorry, There is no content here.</p>
     `;
     div.classList = `flex flex-col justify-center items-center gap-5 my-28`
-    cardContainer.appendChild(div)
+    cardContainer.appendChild(div);
 }
 
 
