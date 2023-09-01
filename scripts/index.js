@@ -52,13 +52,13 @@ const all = (data) => {
                 <div>
                     <img class="w-[300px] h-[150px] mx-auto rounded-lg" src="${datum.thumbnail}">
                 </div>
-                <div class="flex justify-between items-center gap-4 mx-5 mt-5">
+                <div class="flex justify-center lg:justify-between items-center gap-8 lg:gap-4 mx-5 mt-5">
                     <div>
                         <img class="w-[50px] h-[50px] rounded-full" src="${datum.authors[0].profile_picture}">
                     </div>
                     <p class="font-bold">${datum.title}<p>
                 </div>
-                <div class="mx-10 my-2">
+                <div class="flex md:flex-col lg:flex-col gap-5 md:gap-0 lg:gap-0  justify-center mx-10 my-2">
                     <p>${datum.authors[0].profile_name}</p>
                     <p>${datum.others.views} views</p>
                 </div>
