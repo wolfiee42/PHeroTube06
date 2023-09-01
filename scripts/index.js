@@ -54,6 +54,22 @@ const all = (data) => {
     cardContainer.textContent = '';
 
     data.forEach(datum => {
+        function secToHM(totalSeconds) {
+            const secInMin = 60;
+            const secInHr = 60 * secInMin;
+          
+            // Calculate hours and minutes
+            const hours = Math.floor(totalSeconds / secInHr);
+            const minutes = Math.floor((totalSeconds % secInHr) / secInMin);
+          
+            return { hours, minutes };
+          }
+          
+          const totalSeconds = datum.others.posted_date;
+          const { hours, minutes } = secToHM(totalSeconds);
+          
+
+
         const divi = document.createElement('div');
 
         divi.innerHTML = `
@@ -61,7 +77,7 @@ const all = (data) => {
                 <div class="relative">
                     <img class="w-[300px] h-[150px] mx-auto rounded-lg" src="${datum.thumbnail}">
                     
-                        <p>${datum.others.posted_date? `<div class="absolute bottom-2 right-16 md:right-8 lg:right-5 bg-black p-1 text-white rounded-lg">${datum.others.posted_date}</div>` : ' '}</p>
+                        <p>${datum.others.posted_date? `<div class="absolute bottom-2 right-10 md:right-8 lg:right-5 bg-slate-100 p-1 text-black rounded-lg text-xs">${hours}hrs ${minutes}mins ago</div>` : ' '}</p>
                     
                 </div>
                 <div class="flex justify-center lg:justify-between items-center gap-8 lg:gap-4 mx-5 mt-5">
