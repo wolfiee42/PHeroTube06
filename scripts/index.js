@@ -6,20 +6,16 @@ mainContainer.innerHTML = `
     <button id="drawing-btn" class="px-3 rounded-md font-semibold py-1 mx-2 bg-slate-300 hover:bg-slate-400">Drawing</button>
 `;
 
-
 // default section
 fetch('https://openapi.programming-hero.com/api/videos/category/1000')
     .then(res => res.json())
     .then(data => datass(data));
 
 
-    
+
 function datass(data) {
     const something = data.data;
-
-    console.log(something);
     all(something);
-    // sorted(something)
 
 }
 
@@ -31,30 +27,18 @@ function infoo(id) {
             const dataass = data.data;
             all(dataass);
             console.log(dataass);
+            console.log(data);
 
-            /* if (dataass.length > 0) {
+            if (dataass.length > 0) {
                 all(dataass);
             } else if (dataass.length === 0) {
                 nothing();
-            } */
+            }
         })
 
 }
 
-// for sort button
 
-
-/* document.getElementById('sort-btn').addEventListener('click', sorted = (information) => {
-    const viewsArr = [];
-    information.forEach(info => {
-        const viewsString = info.others.views;
-        const views = parseInt(viewsString) * 1000;
-        viewsArr.push(views)
-    })
-    console.log(viewsArr);
-    viewsArr.sort(function(a, b){return b - a});
-    console.log(viewsArr);
-}) */
 
 // indivitual calling
 document.getElementById('all-btn').addEventListener('click', () => {
@@ -135,8 +119,6 @@ const nothing = () => {
     cardContainer.appendChild(div);
 }
 
-
-
-
-
-
+document.getElementById('sort-btn').addEventListener('click', ()=>{
+    location.reload();
+})
