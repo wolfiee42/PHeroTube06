@@ -122,3 +122,7 @@ const nothing = () => {
 document.getElementById('sort-btn').addEventListener('click', ()=>{
     location.reload();
 })
+
+document.getElementById('blogBtn').addEventListener('click', ()=> {
+    window.location.href= 'blog.html';
+})
